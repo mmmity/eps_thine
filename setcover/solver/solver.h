@@ -6,6 +6,7 @@ class SSCSolver {
   std::vector<std::vector<int>> sets;
   std::vector<long long> costs;
 
+  std::vector<int> result_set;
   long long result;
 
  public:
@@ -18,6 +19,8 @@ class SSCSolver {
   long long get_result() {
     return result;
   }
+
+  bool check();
 
   ~SSCSolver() {}
 };

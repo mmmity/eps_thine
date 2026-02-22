@@ -5,6 +5,7 @@ project(setcover)
 
 add_library(solver STATIC
 	solver/greedy_solver.cpp
+	solver/solver.cpp
 )
 
 target_include_directories(solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

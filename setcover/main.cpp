@@ -28,5 +28,10 @@ int main(int argc, char** argv) {
 
   solver.solve();
 
+  if (!solver.check()) {
+    std::cout << "SOLVER DOES NOT WORK AS INTENDED\n";
+    return 1;
+  }
+
   std::cout << solver.get_result();
 }

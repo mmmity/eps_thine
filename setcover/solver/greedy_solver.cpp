@@ -32,5 +32,6 @@ void GreedySSCSolver::solve() {
     }
     yet_to_cover -= best_count;
     result += best_cost;
+    result_set.push_back(best_set_idx);
   }
 }
