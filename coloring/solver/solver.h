@@ -17,7 +17,7 @@ class ColSolver {
     return result;
   }
 
-  std::vector<int> get_result_col() {
+  const std::vector<int>& get_result_col() {
     return result_col;
   }
 

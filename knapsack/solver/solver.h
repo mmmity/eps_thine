@@ -20,6 +20,10 @@ class KSSolver {
     return result;
   }
 
+  const std::vector<int>& get_result_set() {
+    return result_set;
+  }
+
   bool check();
 
   ~KSSolver() {}
