@@ -9,8 +9,8 @@ with open('tests_for_evaluation.txt') as testnames_file:
     testnames = tests_listed.split('\n')
 
 with open('results.txt', 'w') as result_file:
-  for name in testnames:  
+  for name in testnames:
     print(f'Running on test {name}: ', end='')
-    res = subprocess.run(['./build/setcover', f'tests/{name}'], capture_output=True)
+    res = subprocess.run(['./build/knapsack', f'tests/{name}'], capture_output=True)
     result_file.write(f'test {name}: {res.stdout.decode('utf-8')}\n')
     print('OK')
