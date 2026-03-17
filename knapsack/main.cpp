@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <solver/greedy_solver.h>
+#include <greedy_solver.h>
 
 int main(int argc, char** argv) {
   if (argc < 2) {
