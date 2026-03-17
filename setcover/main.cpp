@@ -33,5 +33,5 @@ int main(int argc, char** argv) {
     return 1;
   }
 
-  std::cout << solver.get_result();
+  std::cout << solver.get_result() << "\n";
 }

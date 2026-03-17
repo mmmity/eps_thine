@@ -24,5 +24,5 @@ with open(f'{target}/results.txt', 'w') as result_file:
   for name in testnames:  
     print(f'Running on test {name}: ', end='')
     res = subprocess.run([f'build/{target}', f'{target}/tests/{name}'], capture_output=True)
-    result_file.write(f'test {name}: {res.stdout.decode('utf-8')}\n')
+    result_file.write(f'test {name}: {res.stdout.decode('utf-8')}')
     print('OK')
