@@ -61,7 +61,7 @@ for prefix, tests in BENCHMARK_TESTS.items():
     res_int = int(res.stdout.decode('utf-8').strip())
     results[test] = res_int
   
-  with open(f'benchmark_results/{prefix}', 'w') as f:
+  with open(f'benchmark_results/{prefix}.txt', 'w') as f:
     s = 0
     for test, small, big in tests:
       typ, pts = calc_passed_threshold(results[test], small, big)
