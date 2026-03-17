@@ -1,0 +1,7 @@
+ks_30_0 got 90000, passing no threshold and receiving 0 points
+ks_50_0 got 141956, passing small threshold and receiving 3 points
+ks_200_0 got 100062, passing small threshold and receiving 3 points
+ks_400_0 got 3966813, passing small threshold and receiving 3 points
+ks_1000_0 got 109869, passing small threshold and receiving 3 points
+ks_10000_0 got 1099870, passing small threshold and receiving 3 points
+sum points: 15
