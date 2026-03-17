@@ -8,7 +8,11 @@ jobs:
         - uses: actions/setup-python@v5
           with:
             python-version: '3.13.12'
-
+        - name: Build CMake
+          run: |
+            mkdir build
+            cmake -B build
+            cmake --build build
         - name: Check all tests valid
           run: |
             python3 scripts/check_all_tests_valid.py
