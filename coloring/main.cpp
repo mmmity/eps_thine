@@ -30,6 +30,7 @@ int main(int argc, char** argv) {
   }
 
   std::ofstream fout(argv[2]);
+  fout << solver.get_result() << "\n";
   for (int i : solver.get_result_col()) {
     fout << i << " ";
   }

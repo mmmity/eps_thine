@@ -15,9 +15,11 @@ void GreedySSCSolver::solve() {
     for (int i = 0; i < sets.size(); ++i) {
       if (used[i]) continue;
 
+      std::vector<bool> new_covered = covered;
       int newly_covered = 0;
       for (int j : sets[i]) {
-        if (!covered[j]) ++newly_covered;
+        if (!new_covered[j]) ++newly_covered;
+        new_covered[j] = true;
       }
 
       if (best_set_idx == -1 || newly_covered * best_cost > best_count * costs[i]) {

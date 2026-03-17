@@ -1,6 +1,0 @@
-test gc_50_3: 7
-test gc_70_7: 20
-test gc_100_5: 19
-test gc_250_9: 91
-test gc_500_1: 18
-test gc_1000_5: 123

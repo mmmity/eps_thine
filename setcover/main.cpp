@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
     fin >> costs[i];
 
     int el;
-    while (fin.peek() != '\n' && fin >> el) {
+    while (fin.peek() != '\n' && fin.peek() != '\r' && fin >> el) {
       sets[i].push_back(el);
     }
   }

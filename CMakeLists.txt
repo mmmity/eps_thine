@@ -28,10 +28,13 @@ target_include_directories(coloring_solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/co
 target_link_libraries(coloring_solver PRIVATE util)
 
 add_executable(coloring coloring/main.cpp)
+add_executable(coloring_checker coloring/checker.cpp)
 target_link_libraries(coloring PRIVATE coloring_solver)
 
 add_executable(setcover setcover/main.cpp)
+add_executable(setcover_checker setcover/checker.cpp)
 target_link_libraries(setcover PRIVATE setcover_solver)
 
 add_executable(knapsack knapsack/main.cpp)
+add_executable(knapsack_checker knapsack/checker.cpp)
 target_link_libraries(knapsack PRIVATE knapsack_solver)
