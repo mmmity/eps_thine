@@ -1,6 +1,8 @@
 #include <iomanip>
 #include <iostream>
+#include <math.h>
 #include <string>
+#include <chrono>
 
 class ProgressVisualizer {
   public:
