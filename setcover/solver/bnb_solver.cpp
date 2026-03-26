@@ -3,7 +3,7 @@
 #include <iostream>
 
 void BnBSSCSolver::solve() {
-    // vis.start_visualization("Branch'n'bound solver setcover");
+    vis.start_visualization("Branch'n'bound solver setcover");
     // indices.resize(sets.size());
     // std::iota(indices.begin(), indices.end(), 0);
     // std::sort(indices.begin(), indices.end(), [this](int i, int j) {
@@ -68,18 +68,17 @@ void BnBSSCSolver::solve_recursive(int i) {
     if (i >= sets.size()) return;
     ++steps;
     if (steps > MAX_STEPS) throw EndOfBnB();
-    // vis.add_progress(1);
-    std::cout << steps << "\n";
+    vis.add_progress(1);
+    // std::cout << steps << "\n";
 
     double lb = residue_lower_bound(i);
     if (lb == std::numeric_limits<double>::max() || lb >= current_result) {
         return;
     }
 
-    if (i < sets.size() / 25 || i % 10 == 0) {
+    if (i < sets.size() / 10 || i % 10 == 0) {
         // считаем ub только на некоторых слоях рекурсии чтобы побыстрее работало
         double ub = residue_upper_bound(i);
-        std::cout << lb << " " << ub << "\n";
         if (ub == std::numeric_limits<double>::max()) {
             return;
         }
