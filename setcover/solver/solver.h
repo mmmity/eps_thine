@@ -1,3 +1,5 @@
+#pragma once
+
 #include <vector>
 
 class SSCSolver {
@@ -7,7 +9,7 @@ class SSCSolver {
   std::vector<long long> costs;
 
   std::vector<int> result_set;
-  long long result;
+  long long result = -1;
 
  public:
 

@@ -1,3 +1,5 @@
+#pragma once
+
 #include "solver.h"
 
 class GreedySSCSolver : public SSCSolver {

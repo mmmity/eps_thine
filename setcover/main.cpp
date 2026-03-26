@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <greedy_solver.h>
+#include <bnb_solver.h>
 
 int main(int argc, char** argv) {
   if (argc < 3) {
@@ -24,7 +25,16 @@ int main(int argc, char** argv) {
     }
   }
 
-  GreedySSCSolver solver(n, std::move(sets), std::move(costs));
+#ifndef NDEBUG
+  std::cout << n << " " << m << "\n";
+  for (int i = 0; i < m; ++i) {
+    std::cout << costs[i] << " ";
+    for (int j : sets[i]) std::cout << j << " ";
+    std::cout << "\n";
+  }
+#endif
+
+  BnBSSCSolver solver(n, std::move(sets), std::move(costs));
 
   solver.solve();
 
