@@ -11,7 +11,7 @@ jobs:
         - name: Build CMake
           run: |
             mkdir build
-            cmake -B build
+            cmake -B build -DCMAKE_BUILD_TYPE=RELEASE
             cmake --build build
         - name: Check all tests valid
           run: |

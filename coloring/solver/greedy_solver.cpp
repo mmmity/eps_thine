@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <iostream>
 #include <numeric>
-#include <mex.h>
+#include <numeric.h>
 
 void GreedyColSolver::try_make_greedy_solution(std::mt19937& rnd) {
   int n = graph.size();

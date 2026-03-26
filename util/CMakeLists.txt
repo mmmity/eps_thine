@@ -4,9 +4,11 @@ set(CMAKE_CXX_STANDARD 23)
 project(util)
 
 add_library(util
-    mex/mex.cpp
+    numeric/numeric.cpp
 )
 
 target_include_directories(util
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/mex
+    PUBLIC 
+    ${CMAKE_CURRENT_SOURCE_DIR}/numeric
+    ${CMAKE_CURRENT_SOURCE_DIR}/vis
 )

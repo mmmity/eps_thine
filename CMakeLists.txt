@@ -1,6 +1,13 @@
 cmake_minimum_required(VERSION 3.15)
 set(CMAKE_CXX_STANDARD 23)
 
+set(SANITIZER_FLAGS "-fsanitize=address,undefined -fno-omit-frame-pointer -g")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} ${SANITIZER_FLAGS}")
+set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} ${SANITIZER_FLAGS}")
+
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
+set(CMAKE_C_FLAGS_RELEASE "-O3 -DNDEBUG")
+
 project(eps_thine)
 
 add_subdirectory(util)
@@ -8,24 +15,26 @@ add_subdirectory(util)
 
 add_library(setcover_solver STATIC
 	setcover/solver/greedy_solver.cpp
+	setcover/solver/bnb_solver.cpp
+	setcover/solver/randomized_solver.cpp
 	setcover/solver/solver.cpp
 )
 target_include_directories(setcover_solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/setcover/solver)
-target_link_libraries(setcover_solver PRIVATE util)
+target_link_libraries(setcover_solver PUBLIC util)
 
 add_library(knapsack_solver STATIC
 	knapsack/solver/greedy_solver.cpp
 	knapsack/solver/solver.cpp
 )
 target_include_directories(knapsack_solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/knapsack/solver)
-target_link_libraries(knapsack_solver PRIVATE util)
+target_link_libraries(knapsack_solver PUBLIC util)
 
 add_library(coloring_solver STATIC
 	coloring/solver/greedy_solver.cpp
 	coloring/solver/solver.cpp
 )
 target_include_directories(coloring_solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/coloring/solver)
-target_link_libraries(coloring_solver PRIVATE util)
+target_link_libraries(coloring_solver PUBLIC util)
 
 add_executable(coloring coloring/main.cpp)
 add_executable(coloring_checker coloring/checker.cpp)
