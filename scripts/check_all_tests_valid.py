@@ -2,7 +2,7 @@ import os
 import sys
 import subprocess
 
-PREFIXES = ['tsp']
+PREFIXES = ['setcover', 'knapsack', 'coloring', 'tsp']
 
 def run_all_tests(prefix):
   print(f'Doing prefix {prefix}')
@@ -22,8 +22,7 @@ def run_all_tests(prefix):
     if res.returncode != 0:
       print()
       print(f'Failed test {test}:\n{res.stderr.decode()}')
-      break
-      # sys.exit(1)
+      sys.exit(1)
     
     print('OK')
 
