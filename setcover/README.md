@@ -25,3 +25,16 @@
 
 sum points: 18
 
+# Решение 3
+
+Сделал обход best-first, идти сначала туда где upper bound меньше. Это немножко улучшило результат, но недостаточно
+
+Результат:
+- sc_157_0 got 100600, passing small threshold and receiving 3 points
+- sc_330_0 got 27, passing small threshold and receiving 3 points
+- sc_1000_11 got 158, passing small threshold and receiving 3 points
+- sc_5000_1 got 33, passing small threshold and receiving 3 points
+- sc_10000_5 got 71, passing small threshold and receiving 3 points
+- sc_10000_2 got 191, passing small threshold and receiving 3 points
+
+sum points: 18

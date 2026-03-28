@@ -72,13 +72,15 @@ void BnBSSCSolver::solve_recursive(int i) {
     // std::cout << steps << "\n";
 
     double lb = residue_lower_bound(i);
+    // std::cout << i << " lb: " << lb << "\n";
     if (lb == std::numeric_limits<double>::max() || lb >= current_result) {
         return;
     }
 
-    if (i < sets.size() / 10 || i % 10 == 0) {
+    // if (i < sets.size() / 10 || i % 10 == 0) {
         // считаем ub только на некоторых слоях рекурсии чтобы побыстрее работало
         double ub = residue_upper_bound(i);
+        // std::cout << "ub: " << ub << " " << current_cost << "\n";
         if (ub == std::numeric_limits<double>::max()) {
             return;
         }
@@ -90,19 +92,39 @@ void BnBSSCSolver::solve_recursive(int i) {
             current_sure_state = current_state;
             current_state_end = i;
         } 
-    }
+    // }
     // else if (static_cast<double>(ub - current_result) / ub > 0.05) {
     //     return;
     // }
-
+    // std::cout << "TRY TO MOVE ON\n";
     if (!check_useless(i)) {
+        // std::cout << "MOVING ON\n";
+        double forward_lb_false = residue_upper_bound(i + 1);
         current_state[i] = true;
         current_cost += costs[i];
-        for (int j : sets[i]) covered[j]++;
-        if (current_cost < current_result) solve_recursive(i + 1);
-        for (int j : sets[i]) covered[j]--;
-        current_state[i] = false;
-        current_cost -= costs[i];
+        double forward_lb_true = residue_upper_bound(i + 1);
+        // std::cout << forward_lb_false << " " << forward_lb_true << "\n";
+        if (forward_lb_false < forward_lb_true) {
+            current_state[i] = false;
+            current_cost -= costs[i];
+            solve_recursive(i + 1);
+            current_state[i] = true;
+            current_cost += costs[i];
+            solve_recursive(i + 1);
+            current_state[i] = false;
+            current_cost -= costs[i];
+        } else {
+            solve_recursive(i + 1);
+            current_state[i] = false;
+            current_cost -= costs[i];
+            solve_recursive(i + 1);
+        }
+        return;
+        // for (int j : sets[i]) covered[j]++;
+        // if (current_cost < current_result) solve_recursive(i + 1);
+        // for (int j : sets[i]) covered[j]--;
+        // current_state[i] = false;
+        // current_cost -= costs[i];
     }
     solve_recursive(i + 1);
 }
