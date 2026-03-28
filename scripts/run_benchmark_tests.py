@@ -48,6 +48,15 @@ BENCHMARK_TESTS = {
     ('gc_250_9', 95, 78),
     ('gc_500_1', 18, 16),
     ('gc_1000_5', 124, 100),
+  ],
+
+  'tsp': [
+    ('tsp_51_1', 482, 430),
+    ('tsp_100_3', 23433, 20800),
+    ('tsp_200_2', 35985, 30000),
+    ('tsp_574_1', 40000, 37600),
+    ('tsp_1889_1', 378069, 323000),
+    ('tsp_33810_1', 78478868, 67700000)
   ]
 }
 
@@ -58,7 +67,11 @@ for prefix, tests in BENCHMARK_TESTS.items():
     sys.stdout.flush()
     res = subprocess.run([f'build/{prefix}', f'{prefix}/tests/{test}', f'{prefix}/results/{test}'], capture_output=True)
     print('OK')
-    res_int = int(res.stdout.decode('utf-8').strip())
+    out = res.stdout.decode('utf-8').strip()
+    if '.' in out:
+      res_int = float(out)
+    else:
+      res_int = int(out)
     results[test] = res_int
   
   with open(f'benchmark_results/{prefix}.txt', 'w') as f:
