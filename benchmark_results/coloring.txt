@@ -1,7 +1,7 @@
 gc_50_3 got 7, passing small threshold and receiving 3 points
 gc_70_7 got 20, passing small threshold and receiving 3 points
 gc_100_5 got 19, passing small threshold and receiving 3 points
-gc_250_9 got 91, passing small threshold and receiving 3 points
+gc_250_9 got 94, passing small threshold and receiving 3 points
 gc_500_1 got 18, passing small threshold and receiving 3 points
-gc_1000_5 got 123, passing small threshold and receiving 3 points
+gc_1000_5 got 122, passing small threshold and receiving 3 points
 sum points: 18
