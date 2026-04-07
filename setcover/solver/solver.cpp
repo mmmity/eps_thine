@@ -10,5 +10,10 @@ bool SSCSolver::check() {
   for (bool b : covered) {
     if (!b) return false;
   }
-  return true;
+
+  long long real_res = 0;
+  for (int i : result_set) {
+    real_res += costs[i];
+  }
+  return real_res == result;
 }

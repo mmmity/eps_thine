@@ -3,26 +3,32 @@
 #include <algorithm>
 
 double RandomizedSSCSolver::lower_bound() {
-    lb_weights.resize(sets.size());
-    std::vector<double> current_costs(sets.size());
-    for (int i = 0; i < sets.size(); ++i) current_costs[i] = costs[i];
-
+    // решаем двойственную задачу к линейной релаксации
     std::vector<bool> already_covered(n, false);
+    std::vector<double> c(sets.size(), 0);
+    for (int j = 0; j < sets.size(); ++j) {
+        c[j] = costs[j];
+    }
+
+    std::vector<std::pair<double, int>> candidates;
+    for (int j = 0; j < sets.size(); ++j) {
+        int newly_covered = 0;
+        for (int k : sets[j]) ++newly_covered;
+        if (newly_covered > 0) candidates.emplace_back((double)costs[j] / newly_covered, j);
+    }
+    std::sort(candidates.begin(), candidates.end());
 
     double res = 0;
-    for (int i = 0; i < n; ++i) {
-        double min_cost = std::numeric_limits<double>::max();
-        for (int k : covering[i]) {
-            min_cost = std::min(min_cost, current_costs[k]);
+    for (auto& [ratio, idx] : candidates) {
+        int newly_covered = 0;
+        for (int k : sets[idx]) {
+            if (!already_covered[k]) {
+                already_covered[k] = true;
+                ++newly_covered;
+            }
         }
-
-        if (min_cost == std::numeric_limits<double>::max()) {
-            return 0;
-        }
-        res += min_cost; 
-        for (int k : covering[i]) {
-            current_costs[k] -= min_cost;
-            lb_weights[k] += min_cost;
+        if (newly_covered > 0) {
+            res += costs[idx] * ((double)newly_covered / sets[idx].size());
         }
     }
     return res;

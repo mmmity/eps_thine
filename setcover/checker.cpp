@@ -30,7 +30,8 @@ int main(int argc, char** argv) {
   }
 
   int p;
-  out >> p;
+  long long result;
+  out >> p >> result;
   std::vector<int> indices(p);
   for (int i = 0; i < p; ++i) {
     out >> indices[i];
@@ -48,5 +49,16 @@ int main(int argc, char** argv) {
       return 1;
     }
   }
+
+  long long real_result = 0;
+  for (int i : indices) {
+    real_result += costs[i];
+  }
+
+  if (result != real_result) {
+    std::cerr << "Failed test " << testname << ": result " << result << " != " << real_result << "\n";
+    return 1;
+  }
+  
   return 0;
 }

@@ -38,3 +38,19 @@ sum points: 18
 - sc_10000_2 got 191, passing small threshold and receiving 3 points
 
 sum points: 18
+
+# Решение 4
+
+Несколько раз посемплить по малому числу элементов, решить задачу минимального покрытия элементов при помощи дейкстры на масках, взять это решение и добить его до жадного. Сделать так 500 раз.
+
+Результат:
+
+sc_157_0 got 94400, passing BIG threshold and receiving 5 points
+sc_330_0 got 27, passing small threshold and receiving 3 points
+sc_1000_11 got 155, passing small threshold and receiving 3 points
+sc_5000_1 got 32, passing small threshold and receiving 3 points
+sc_10000_5 got 69, passing small threshold and receiving 3 points
+sc_10000_2 got 185, passing small threshold and receiving 3 points
+sum points: 20
+
+Хорошо сработало на тесте в котором всего 29 элементов, так что норм наверное. Остальные кстати тоже в итоге получше чем bnb оказались. Работало максимум полторы минуты у меня на macbook air.

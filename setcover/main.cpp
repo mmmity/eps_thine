@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <greedy_solver.h>
-#include <bnb_solver.h>
+#include <randomized_element_solver.h>
 
 int main(int argc, char** argv) {
   if (argc < 3) {
@@ -34,7 +34,7 @@ int main(int argc, char** argv) {
   }
 #endif
 
-  BnBSSCSolver solver(n, std::move(sets), std::move(costs));
+  RandomizedElementSSCSolver solver(n, std::move(sets), std::move(costs), 1000-7);
 
   solver.solve();
 
@@ -44,7 +44,7 @@ int main(int argc, char** argv) {
   }
 
   std::ofstream fout(argv[2]);
-  fout << solver.get_result_set().size() << "\n";
+  fout << solver.get_result_set().size() << " " << solver.get_result() << "\n";
   for (int i : solver.get_result_set()) {
     fout << i << " ";
   }
