@@ -1,7 +1,7 @@
-sc_157_0 got 100600, passing small threshold and receiving 3 points
+sc_157_0 got 94400, passing BIG threshold and receiving 5 points
 sc_330_0 got 27, passing small threshold and receiving 3 points
-sc_1000_11 got 158, passing small threshold and receiving 3 points
-sc_5000_1 got 33, passing small threshold and receiving 3 points
-sc_10000_5 got 71, passing small threshold and receiving 3 points
-sc_10000_2 got 191, passing small threshold and receiving 3 points
-sum points: 18
+sc_1000_11 got 155, passing small threshold and receiving 3 points
+sc_5000_1 got 32, passing small threshold and receiving 3 points
+sc_10000_5 got 69, passing small threshold and receiving 3 points
+sc_10000_2 got 185, passing small threshold and receiving 3 points
+sum points: 20
