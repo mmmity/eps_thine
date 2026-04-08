@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iomanip>
 #include <iostream>
 #include <math.h>
@@ -37,6 +39,7 @@ class ProgressVisualizer {
             << current << "/" << n << " "
             << percentage << "%";
         visualize_time();
+        std::cout.flush();
     }
 
     void visualize_time() {
