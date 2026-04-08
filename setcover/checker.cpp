@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
     inp >> costs[i];
 
     int el;
-    while (inp.peek() != '\n' && inp >> el) {
+    while (inp.peek() != '\n' && inp.peek() != '\r' && inp >> el) {
       sets[i].push_back(el);
     }
   }
@@ -52,6 +52,7 @@ int main(int argc, char** argv) {
 
   long long real_result = 0;
   for (int i : indices) {
+    // std::cout << costs[i] << "\n";
     real_result += costs[i];
   }
 
