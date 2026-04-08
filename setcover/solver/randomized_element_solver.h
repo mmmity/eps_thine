@@ -48,7 +48,7 @@ class RandomizedElementSSCSolver : public SSCSolver {
 
   void solve() override;
 
-  ~RandomizedElementSSCSolver() {}
+  ~RandomizedElementSSCSolver() override {}
 
  private:
   const int MAX_STEPS = 500;

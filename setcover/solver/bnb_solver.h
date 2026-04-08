@@ -29,7 +29,7 @@ class BnBSSCSolver : public SSCSolver {
 
   void solve() override;
 
-  ~BnBSSCSolver() {}
+  ~BnBSSCSolver() override {}
 
  private:
   const int MAX_STEPS = 15000;

@@ -28,5 +28,5 @@ class SSCSolver {
 
   bool check();
 
-  ~SSCSolver() {}
+  virtual ~SSCSolver() {}
 };

@@ -9,5 +9,5 @@ class GreedySSCSolver : public SSCSolver {
 
   void solve() override;
 
-  ~GreedySSCSolver() {}
+  ~GreedySSCSolver() override {}
 };

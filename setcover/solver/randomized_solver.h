@@ -30,7 +30,7 @@ class RandomizedSSCSolver : public SSCSolver {
 
   void solve() override;
 
-  ~RandomizedSSCSolver() {}
+  ~RandomizedSSCSolver() override {}
 
  private:  
   std::vector<std::vector<int>> covering;
