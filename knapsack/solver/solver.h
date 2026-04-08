@@ -26,5 +26,5 @@ class KSSolver {
 
   bool check();
 
-  ~KSSolver() {}
+  virtual ~KSSolver() {}
 };

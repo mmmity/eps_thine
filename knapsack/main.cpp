@@ -1,6 +1,8 @@
+#pragma comment(linker, "/STACK:16777216")
+
 #include <iostream>
 #include <fstream>
-#include <greedy_solver.h>
+#include <bnb_solver.h>
 
 int main(int argc, char** argv) {
   if (argc < 3) {
@@ -20,7 +22,7 @@ int main(int argc, char** argv) {
     fin >> costs[i] >> weights[i];
   }
 
-  GreedyKSSolver solver(W, std::move(weights), std::move(costs));
+  BnBKSSolver solver(W, std::move(weights), std::move(costs));
 
   solver.solve();
 

@@ -8,5 +8,5 @@ class GreedyKSSolver : public KSSolver {
 
   void solve() override;
 
-  ~GreedyKSSolver() {}
+  ~GreedyKSSolver() override {}
 };

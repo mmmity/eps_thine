@@ -24,11 +24,19 @@ target_include_directories(setcover_solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/se
 target_link_libraries(setcover_solver PUBLIC util)
 
 add_library(knapsack_solver STATIC
+	knapsack/solver/bnb_solver.cpp
 	knapsack/solver/greedy_solver.cpp
 	knapsack/solver/solver.cpp
 )
 target_include_directories(knapsack_solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/knapsack/solver)
 target_link_libraries(knapsack_solver PUBLIC util)
+if (MSVC)
+    target_link_options(knapsack_solver PRIVATE /STACK:67108864)
+elseif (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    target_link_options(knapsack_solver PRIVATE -Wl,-z,stack-size=67108864)
+elseif (APPLE)
+    target_link_options(knapsack_solver PRIVATE -Wl,-stack_size,0x4000000)
+endif()
 
 add_library(coloring_solver STATIC
 	coloring/solver/greedy_solver.cpp
