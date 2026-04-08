@@ -17,6 +17,7 @@ add_library(setcover_solver STATIC
 	setcover/solver/greedy_solver.cpp
 	setcover/solver/bnb_solver.cpp
 	setcover/solver/randomized_solver.cpp
+	setcover/solver/randomized_element_solver.cpp
 	setcover/solver/solver.cpp
 )
 target_include_directories(setcover_solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/setcover/solver)
