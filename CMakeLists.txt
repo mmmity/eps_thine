@@ -52,6 +52,13 @@ add_library(tsp_solver STATIC
 target_include_directories(tsp_solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/tsp/solver)
 target_link_libraries(tsp_solver PUBLIC util)
 
+add_library(facility_solver STATIC
+	facility/solver/greedy_solver.cpp
+	facility/solver/solver.cpp
+)
+target_include_directories(facility_solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/facility/solver)
+target_link_libraries(facility_solver PUBLIC util)
+
 add_executable(coloring coloring/main.cpp)
 add_executable(coloring_checker coloring/checker.cpp)
 target_link_libraries(coloring PRIVATE coloring_solver)
@@ -67,3 +74,7 @@ target_link_libraries(knapsack PRIVATE knapsack_solver)
 add_executable(tsp tsp/main.cpp)
 add_executable(tsp_checker tsp/checker.cpp)
 target_link_libraries(tsp PRIVATE tsp_solver)
+
+add_executable(facility facility/main.cpp)
+add_executable(facility_checker facility/checker.cpp)
+target_link_libraries(facility PRIVATE facility_solver)
