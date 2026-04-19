@@ -1,0 +1,7 @@
+fl_25_2 got 3276471.4003415485, passing small threshold and receiving 3 points
+fl_100_1 got 178669106.39934862, passing no threshold and receiving 0 points
+fl_200_7 got 5437536.360894389, passing no threshold and receiving 0 points
+fl_500_7 got 38585497.36033938, passing no threshold and receiving 0 points
+fl_1000_2 got 10947684.287235022, passing no threshold and receiving 0 points
+fl_2000_2 got 11958542.332359666, passing no threshold and receiving 0 points
+sum points: 3
