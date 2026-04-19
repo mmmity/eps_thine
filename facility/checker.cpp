@@ -1,5 +1,6 @@
 #include <iomanip>
 #include <iostream>
+#include <filesystem>
 #include <fstream>
 #include <vector>
 #include <cmath>
@@ -25,6 +26,9 @@ int main(int argc, char** argv) {
     std::ifstream inp(prefix + "/tests/" + testname);
     std::ifstream out(prefix + "/results/" + testname);
     if (!inp.is_open() || !out.is_open()) {
+        std::cerr << std::filesystem::exists(prefix + "/tests/" + testname);
+        std::cerr << std::filesystem::exists(prefix + "/results/" + testname);
+        std::cerr << "\n";
         std::cerr << prefix << " " << testname << "\n";
         std::cerr << "Failed to open files\n";
         return 1;
