@@ -24,6 +24,10 @@ int main(int argc, char** argv) {
 
     std::ifstream inp(prefix + "/tests/" + testname);
     std::ifstream out(prefix + "/results/" + testname);
+    if (!inp.is_open() || !out.is_open()) {
+        std::cerr << "Failed to open files\n";
+        return 1;
+    }
     int n, m;
     inp >> n >> m;
     std::vector<double> costs(n), caps(n), demands(m);
