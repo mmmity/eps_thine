@@ -2,7 +2,7 @@ import os
 import sys
 import subprocess
 
-PREFIXES = ['facility']
+PREFIXES = ['setcover', 'knapsack', 'coloring', 'tsp', 'facility']
 
 def run_all_tests(prefix):
   print(f'Doing prefix {prefix}')
