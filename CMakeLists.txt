@@ -59,6 +59,13 @@ add_library(facility_solver STATIC
 target_include_directories(facility_solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/facility/solver)
 target_link_libraries(facility_solver PUBLIC util)
 
+add_library(vrp_solver STATIC
+	vrp/solver/greedy_solver.cpp
+	vrp/solver/solver.cpp
+)
+target_include_directories(vrp_solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/vrp/solver ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(vrp_solver PUBLIC util tsp_solver)
+
 add_executable(coloring coloring/main.cpp)
 add_executable(coloring_checker coloring/checker.cpp)
 target_link_libraries(coloring PRIVATE coloring_solver)
@@ -78,3 +85,7 @@ target_link_libraries(tsp PRIVATE tsp_solver)
 add_executable(facility facility/main.cpp)
 add_executable(facility_checker facility/checker.cpp)
 target_link_libraries(facility PRIVATE facility_solver)
+
+add_executable(vrp vrp/main.cpp)
+add_executable(vrp_checker vrp/checker.cpp)
+target_link_libraries(vrp PRIVATE vrp_solver)
