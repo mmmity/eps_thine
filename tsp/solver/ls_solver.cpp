@@ -11,6 +11,7 @@ double LSTSPSolver::mock_two_opt(int i, int j) {
   mock_result -= distance_matrix[result_set[j]][result_set[(j + 1) % points.size()]];
   mock_result += distance_matrix[result_set[i]][result_set[j]];
   mock_result += distance_matrix[result_set[(i + 1) % points.size()]][result_set[(j + 1) % points.size()]];
+  return mock_result;
 }
 
 void LSTSPSolver::two_opt(int i, int j) {
@@ -24,25 +25,23 @@ void LSTSPSolver::two_opt(int i, int j) {
 void LSTSPSolver::solve() {
     GreedyTSPSolver::solve();
 
-
-    // first-improve
+    // best-improve
     ProgressVisualizer vis(1000);
-    for (int i = 0; i * points.size() * points.size() * points.size() < 1000000000; ++i) {
+    for (int s = 0; s * points.size() * points.size() * points.size() < 1000000000; ++s) {
       vis.add_progress(1);
       double current_result = result;
-      bool changed = false;
+      int best_i = -1, best_j = -1;
       for (int i = 0; i + 2 < points.size(); ++i) {
         for (int j = i + 2; j < points.size(); ++j) {
-          two_opt(i, j);
-          if (result < current_result + 1e-15) {
-            changed = true;
-            current_result = result;
-            break;
+          double mock_result = mock_two_opt(i, j);
+          if (mock_result < current_result) {
+            current_result = mock_result;
+            best_i = i;
+            best_j = j;
           }
-          two_opt(i, j);
         }
-        if (changed) break;
       }
-      if (!changed) break;
+      if (best_i == -1) break;
+      two_opt(best_i, best_j);
     }
 }

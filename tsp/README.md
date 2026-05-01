@@ -34,16 +34,16 @@ sum points: 6
 
 ## Решение 3
 
-Пробуем добавить локальный поиск! Пока что самый простой: инициализируем жадным поиском из нулевой вершины, пытаемся сделать 2opt на всех возможных парах вершин, как только нашли улучшение, улучшаем (first-improve). Пока находим хоть какое-то улучшение или пока не превысили асимптотический порог числа операций, повторяем.
+Пробуем добавить локальный поиск! Пока что самый простой: инициализируем жадным поиском из нулевой вершины, пытаемся сделать 2opt на всех возможных парах вершин, самый лучший применяем (best-improve). Пока находим хоть какое-то улучшение или пока не превысили асимптотический порог числа операций, повторяем.
 
 Результат:
 
-- tsp_51_1 got 457.2665637602, passing small threshold and receiving 3 points
-- tsp_100_3 got 22005.7161959411, passing small threshold and receiving 3 points
-- tsp_200_2 got 35288.159352312, passing small threshold and receiving 3 points
-- tsp_574_1 got 44325.8833120107, passing no threshold and receiving 0 points
-- tsp_1889_1 got 380217.1032706238, passing no threshold and receiving 0 points
-- tsp_33810_1 got 77866836.57404381, passing small threshold and receiving 3 points
+- tsp_51_1 got 442.917448031, passing small threshold and receiving 3 points
+- tsp_100_3 got 21431.233218346, passing small threshold and receiving 3 points
+- tsp_200_2 got 31797.3380885428, passing small threshold and receiving 3 points
+- tsp_574_1 got 42995.040110546, passing no threshold and receiving 0 points
+- tsp_1889_1 got 378584.1207974767, passing no threshold and receiving 0 points
+- tsp_33810_1 got 77776861.78646962, passing small threshold and receiving 3 points
 
 sum points: 12
 

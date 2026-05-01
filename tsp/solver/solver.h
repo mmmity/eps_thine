@@ -25,10 +25,10 @@ class TSPSolver {
   }
 
   TSPSolver(std::vector<point>&& points) : points(std::move(points)) {
-    distance_matrix.resize(points.size(), std::vector<double>(points.size()));
-    for (int i = 0; i < points.size(); ++i) {
-      for (int j = 0; j < points.size(); ++j) {
-        distance_matrix[i][j] = distance(points[i], points[j]);
+    distance_matrix.resize(this->points.size(), std::vector<double>(this->points.size()));
+    for (int i = 0; i < this->points.size(); ++i) {
+      for (int j = 0; j < this->points.size(); ++j) {
+        distance_matrix[i][j] = distance(this->points[i], this->points[j]);
       }
     }
   }
