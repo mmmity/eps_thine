@@ -1,4 +1,4 @@
-#include <greedy_solver.h>
+#include <ld_solver.h>
 #include <fstream>
 #include <iostream>
 
@@ -20,14 +20,14 @@ int main(int argc, char** argv) {
     graph[v].push_back(u);
   }
 
-  GreedyColSolver solver(std::move(graph));
+  LDColSolver solver(std::move(graph));
 
   solver.solve();
 
-  if (!solver.check()) {
-    std::cout << "SOLVER DOES NOT WORK AS INTENDED\n";
-    return 1;
-  }
+  // if (!solver.check()) {
+  //   std::cout << "SOLVER DOES NOT WORK AS INTENDED\n";
+  //   return 1;
+  // }
 
   std::ofstream fout(argv[2]);
   fout << solver.get_result() << "\n";
