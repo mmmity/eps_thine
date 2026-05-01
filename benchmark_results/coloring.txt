@@ -1,7 +1,7 @@
-gc_50_3 got 7, passing small threshold and receiving 3 points
-gc_70_7 got 20, passing small threshold and receiving 3 points
-gc_100_5 got 19, passing small threshold and receiving 3 points
-gc_250_9 got 91, passing small threshold and receiving 3 points
-gc_500_1 got 18, passing small threshold and receiving 3 points
-gc_1000_5 got 123, passing small threshold and receiving 3 points
-sum points: 18
+gc_50_3 got 6, passing BIG threshold and receiving 5 points
+gc_70_7 got 17, passing BIG threshold and receiving 5 points
+gc_100_5 got 16, passing BIG threshold and receiving 5 points
+gc_250_9 got 78, passing BIG threshold and receiving 5 points
+gc_500_1 got 16, passing BIG threshold and receiving 5 points
+gc_1000_5 got 111, passing small threshold and receiving 3 points
+sum points: 28
