@@ -1,7 +1,7 @@
-vrp_16_3_1 got 331.7591574662, passing small threshold and receiving 3 points
-vrp_26_8_1 got 941.1811033177, passing small threshold and receiving 3 points
-vrp_51_5_1 got 839.1641815157, passing no threshold and receiving 0 points
-vrp_101_10_1 got 1339.0074823939, passing no threshold and receiving 0 points
-vrp_200_16_1 got 2377.9235677428, passing small threshold and receiving 3 points
-vrp_421_41_1 got 3742.8109513407, passing no threshold and receiving 0 points
+vrp_16_3_1 got 322.7957601688, passing small threshold and receiving 3 points
+vrp_26_8_1 got 887.281299353, passing small threshold and receiving 3 points
+vrp_51_5_1 got 753.4415943521, passing no threshold and receiving 0 points
+vrp_101_10_1 got 1278.5651906292, passing no threshold and receiving 0 points
+vrp_200_16_1 got 2197.1811027318, passing small threshold and receiving 3 points
+vrp_421_41_1 got 3510.0213403735, passing no threshold and receiving 0 points
 sum points: 9
