@@ -16,6 +16,17 @@ jobs:
         - name: Check all tests valid
           run: |
             python3 scripts/check_all_tests_valid.py
+        - name: Upload tsp results artifact
+          uses: actions/upload-artifact@v4
+          with:
+            name: results
+            path: |
+              setcover/results
+              knapsack/results
+              coloring/results
+              tsp/results
+              facility/results
+              vrp/results              
         - name: Run benchmark tests
           run: |
             python3 scripts/run_benchmark_tests.py
