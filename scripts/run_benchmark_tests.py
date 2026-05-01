@@ -78,7 +78,13 @@ BENCHMARK_TESTS = {
   ]
 }
 
-for prefix, tests in BENCHMARK_TESTS.items():
+if len(sys.argv) > 1:
+  prefixes = sys.argv[1:]
+else:
+  prefixes = BENCHMARK_TESTS.keys()
+
+for prefix in prefixes:
+  tests = BENCHMARK_TESTS[prefix]
   results = {}
   for test, _, _ in tests:
     print(f'Running test {prefix}/{test}: ', end='')

@@ -27,5 +27,10 @@ def run_all_tests(prefix):
     print('OK')
 
 
-for prefix in PREFIXES:
+if len(sys.argv) > 1:
+  prefixes = sys.argv[1:]
+else:
+  prefixes = PREFIXES
+
+for prefix in prefixes:
   run_all_tests(prefix)
