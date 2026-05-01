@@ -12,7 +12,7 @@ class TSPSolver {
   std::vector<point> points;
 
   std::vector<int> result_set;
-  double result{0};
+  double result{-1};
 
   const double EPS = 1e-6;
 

@@ -11,4 +11,7 @@ class GreedyTSPSolver : public TSPSolver {
   void solve() override;
 
   ~GreedyTSPSolver() {}
+
+ private:
+  void solve_from_start(int i);
 };

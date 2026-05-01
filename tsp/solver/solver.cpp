@@ -1,5 +1,7 @@
 #include "solver.h"
 
+#include <iostream>
+
 bool TSPSolver::check() {
   double apparent_result = 0;
   std::vector<bool> visited(points.size(), false);
