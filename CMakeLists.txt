@@ -40,6 +40,7 @@ endif()
 
 add_library(coloring_solver STATIC
 	coloring/solver/greedy_solver.cpp
+	coloring/solver/ld_solver.cpp
 	coloring/solver/solver.cpp
 )
 target_include_directories(coloring_solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/coloring/solver)

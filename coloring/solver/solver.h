@@ -23,5 +23,5 @@ class ColSolver {
 
   bool check();
 
-  ~ColSolver() {}
+  virtual ~ColSolver() {}
 };

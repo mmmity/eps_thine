@@ -8,7 +8,7 @@ class GreedyColSolver : public ColSolver {
 
   void solve() override;
 
-  ~GreedyColSolver() {};
+  ~GreedyColSolver() override {};
  
  private:
   void try_make_greedy_solution(std::mt19937& rnd);

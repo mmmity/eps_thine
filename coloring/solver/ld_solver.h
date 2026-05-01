@@ -14,7 +14,7 @@ class LDColSolver : public ColSolver {
 
   void solve() override;
 
-  ~LDColSolver() {};
+  ~LDColSolver() override {};
  
  private:
   int make_greedy_solution(const std::vector<int>& order, std::vector<int>& output_solution);
