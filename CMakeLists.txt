@@ -47,6 +47,7 @@ target_include_directories(coloring_solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/co
 target_link_libraries(coloring_solver PUBLIC util)
 
 add_library(tsp_solver STATIC
+	tsp/solver/ls_solver.cpp
 	tsp/solver/greedy_solver.cpp
 	tsp/solver/solver.cpp
 )

@@ -16,6 +16,5 @@ bool TSPSolver::check() {
   for (bool t : visited) {
     if (!t) return false;
   }
-
   return std::abs(apparent_result - result) < EPS;
 }

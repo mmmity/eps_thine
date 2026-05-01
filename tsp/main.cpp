@@ -1,7 +1,7 @@
 #include <iomanip>
 #include <iostream>
 #include <fstream>
-#include <greedy_solver.h>
+#include <ls_solver.h>
 
 int main(int argc, char** argv) {
   if (argc < 3) {
@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
     fin >> pts[i].x >> pts[i].y;
   }
 
-  GreedyTSPSolver solver(std::move(pts));
+  LSTSPSolver solver(std::move(pts));
 
   solver.solve();
 

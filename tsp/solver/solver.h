@@ -11,6 +11,8 @@ class TSPSolver {
  protected:
   std::vector<point> points;
 
+  std::vector<std::vector<double>> distance_matrix;
+
   std::vector<int> result_set;
   double result{-1};
 
@@ -22,8 +24,22 @@ class TSPSolver {
     return std::hypot(a.x - b.x, a.y - b.y);
   }
 
-  TSPSolver(std::vector<point>&& points) : points(std::move(points)) {}
-  TSPSolver(const std::vector<point>& points) : points(points) {}
+  TSPSolver(std::vector<point>&& points) : points(std::move(points)) {
+    distance_matrix.resize(points.size(), std::vector<double>(points.size()));
+    for (int i = 0; i < points.size(); ++i) {
+      for (int j = 0; j < points.size(); ++j) {
+        distance_matrix[i][j] = distance(points[i], points[j]);
+      }
+    }
+  }
+  TSPSolver(const std::vector<point>& points) : points(points) {
+    distance_matrix.resize(points.size(), std::vector<double>(points.size()));
+    for (int i = 0; i < points.size(); ++i) {
+      for (int j = 0; j < points.size(); ++j) {
+        distance_matrix[i][j] = distance(points[i], points[j]);
+      }
+    }
+  }
 
   virtual void solve() {};
 
