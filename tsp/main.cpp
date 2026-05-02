@@ -1,6 +1,7 @@
 #include <iomanip>
 #include <iostream>
 #include <fstream>
+#include <flood_solver.h>
 #include <ls_solver.h>
 
 int main(int argc, char** argv) {
@@ -19,21 +20,28 @@ int main(int argc, char** argv) {
     fin >> pts[i].x >> pts[i].y;
   }
 
-  LSTSPSolver solver(std::move(pts));
+  TSPSolver* solver;
+  if (n > 10000) {
+    solver = new LSTSPSolver{std::move(pts)};
+  } else {
+    solver = new FloodTSPSolver{std::move(pts)};
+  }
 
-  solver.solve();
+  solver->solve();
 
-  if (!solver.check()) {
+  if (!solver->check()) {
     std::cout << "SOLVER DOES NOT WORK AS INTENDED\n";
     return 1;
   }
 
   std::ofstream fout(argv[2]);
-  fout << std::setprecision(10) << std::fixed << solver.get_result() << "\n";
-  for (int i : solver.get_result_set()) {
+  fout << std::setprecision(10) << std::fixed << solver->get_result() << "\n";
+  for (int i : solver->get_result_set()) {
     fout << i << " ";
   }
   fout << "\n";
 
-  std::cout << std::setprecision(10) << std::fixed << solver.get_result() << "\n";
+  std::cout << std::setprecision(10) << std::fixed << solver->get_result() << "\n";
+
+  delete solver;
 }

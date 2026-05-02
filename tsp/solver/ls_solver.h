@@ -1,6 +1,7 @@
 #pragma once
 
 #include "greedy_solver.h"
+#include <algorithm>
 #include <random>
 
 class LSTSPSolver : public GreedyTSPSolver {
@@ -13,7 +14,11 @@ class LSTSPSolver : public GreedyTSPSolver {
 
   ~LSTSPSolver() {}
 
- private:
+  void random_2opt(std::mt19937& rnd);
+  void shuffle(std::mt19937& rnd);
+
+ private: 
+
   void two_opt(int i, int j);
   double mock_two_opt(int i, int j);
 };

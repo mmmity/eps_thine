@@ -45,3 +45,22 @@ void LSTSPSolver::solve() {
       two_opt(best_i, best_j);
     }
 }
+
+void LSTSPSolver::random_2opt(std::mt19937& rnd) {
+  int i = rnd() % points.size();
+  int j = rnd() % points.size();
+  if (i == j) return;
+  if (i > j) std::swap(i, j);
+  if (j == i + 1) return;
+  if (mock_two_opt(i, j) > result) return;
+  two_opt(i, j);
+}
+
+void LSTSPSolver::shuffle(std::mt19937& rnd) {
+  result_set.resize(points.size());
+  std::iota(result_set.begin(), result_set.end(), 0);
+  std::shuffle(result_set.begin(), result_set.end(), rnd);
+  result = 0;
+  for (int i = 1; i < points.size(); ++i) result += distance_matrix[result_set[i - 1]][result_set[i]];
+  result += distance_matrix[result_set[points.size() - 1]][result_set[0]];
+}
