@@ -16,7 +16,7 @@ class TSPSolver {
   std::vector<int> result_set;
   double result{-1};
 
-  const double EPS = 1e-6;
+  const double EPS = 1e-4;
 
  public:
 
@@ -27,16 +27,20 @@ class TSPSolver {
   TSPSolver(std::vector<point>&& points) : points(std::move(points)) {
     distance_matrix.resize(this->points.size(), std::vector<double>(this->points.size()));
     for (int i = 0; i < this->points.size(); ++i) {
-      for (int j = 0; j < this->points.size(); ++j) {
+      distance_matrix[i][i] = 0;
+      for (int j = i + 1; j < this->points.size(); ++j) {
         distance_matrix[i][j] = distance(this->points[i], this->points[j]);
+        distance_matrix[j][i] = distance_matrix[i][j];
       }
     }
   }
   TSPSolver(const std::vector<point>& points) : points(points) {
     distance_matrix.resize(points.size(), std::vector<double>(points.size()));
-    for (int i = 0; i < points.size(); ++i) {
-      for (int j = 0; j < points.size(); ++j) {
-        distance_matrix[i][j] = distance(points[i], points[j]);
+    for (int i = 0; i < this->points.size(); ++i) {
+      distance_matrix[i][i] = 0;
+      for (int j = i + 1; j < this->points.size(); ++j) {
+        distance_matrix[i][j] = distance(this->points[i], this->points[j]);
+        distance_matrix[j][i] = distance_matrix[i][j];
       }
     }
   }

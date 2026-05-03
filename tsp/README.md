@@ -72,3 +72,21 @@ sum points: 12
 sum points: 20
 
 У меня ощущение, что это заслуга не метода всемирного потопа, а просто локального поиска с несколькими случайными стартами... Может стоит пойти улучшать простой локальный поиск перед тем как переходить к генетике.
+
+
+## Решение 5
+
+Метод симуляции отжига, самый классический. Константы поперебирал, итоговые лежат в [anneal_solver](tsp/solver/anneal_solver.cpp) в функции `choose_constants`. Опять же для больших тестов ставлю константы поменьше чтобы укладываться в нормальное время.
+
+Результат:
+
+- tsp_51_1 got 428.871756392, passing BIG threshold and receiving 5 points
+- tsp_100_3 got 20750.7625036869, passing BIG threshold and receiving 5 points
+- tsp_200_2 got 29532.0122667202, passing BIG threshold and receiving 5 points
+- tsp_574_1 got 38491.7565333641, passing small threshold and receiving 3 points
+- tsp_1889_1 got 350244.4576641141, passing small threshold and receiving 3 points
+- tsp_33810_1 got 77836076.04763284, passing small threshold and receiving 3 points
+
+sum points: 24
+
+Как будто бы оставшееся закрывается именно генетикой. Вообще предположение что просто локальный поиск хорошо работает подтвердилось.

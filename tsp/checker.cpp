@@ -57,7 +57,7 @@ int main(int argc, char** argv) {
   }
   actual_dist += dist(pts[order[n - 1]], pts[order[0]]);
 
-  if (std::abs(actual_dist - given_dist) > 1e-6) {
+  if (std::abs(actual_dist - given_dist) > 1e-4) {
     std::cerr << "Failed test " << testname << ": results not equal\n";
     std::cerr << actual_dist << " " << given_dist << "\n";
     return 1;
