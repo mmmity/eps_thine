@@ -9,6 +9,7 @@ class AnnealTSPSolver : public GreedyTSPSolver {
   AnnealTSPSolver(const std::vector<point>& points) : GreedyTSPSolver(points) {}
 
   void solve() override;
+  void set_vrp_constants();
 
   ~AnnealTSPSolver() {}
 
@@ -19,6 +20,7 @@ class AnnealTSPSolver : public GreedyTSPSolver {
   double end_temp = 1e-4;
   int nn_count = 30;
   double temp, mul;
+  bool in_vrp{false};
   std::vector<std::vector<int>> nearest_neighbors;
   std::vector<int> point_to_pos;
 

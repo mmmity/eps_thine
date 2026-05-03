@@ -59,7 +59,7 @@ void AnnealTSPSolver::calc_nearest_neighbors() {
 }
 
 void AnnealTSPSolver::solve() {
-  choose_constants();
+  if (!in_vrp) choose_constants();
   if (nn_count > 0) calc_nearest_neighbors();
   mul = std::pow(end_temp / start_temp, 1.0 / opt_count);
   GreedyTSPSolver::solve();
@@ -95,7 +95,7 @@ void AnnealTSPSolver::choose_constants() {
     opt_count = 500000;
     start_temp = 10000;
     end_temp = 1e-4;
-    nn_count = 20;
+    nn_count = std::min(20UL, points.size() - 1);
   } else {
     restart_count = 100;
     opt_count = 1000;
@@ -103,4 +103,13 @@ void AnnealTSPSolver::choose_constants() {
     end_temp = 1e-4;
     nn_count = 10;
   }
+}
+
+void AnnealTSPSolver::set_vrp_constants() {
+  restart_count = 500;
+  opt_count = 5000;
+  start_temp = 100;
+  end_temp = 1e-4;
+  nn_count = std::min(20UL, points.size() - 1);
+  in_vrp = true;
 }
