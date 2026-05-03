@@ -31,3 +31,15 @@
 sum points: 9
 
 Сильно лучше чем я ожидал. Вообще говоря, проблема такого подхода в том, что на некоторых тестах он буквально не сработал совсем, то есть с таким разбиением машин на клиентов тупо не хватило. К счастью, для большинства тестов было норм.
+
+# Решение 2
+Вместо того чтобы сортировать клиентов по оси x, 500 раз отсортируем их вдоль случайного вектора. Для решения TSP используем локальный поиск из решения 3. Результат:
+
+- vrp_16_3_1 got 294.5743928284, passing small threshold and receiving 3 points
+- vrp_26_8_1 got 748.030612751, passing small threshold and receiving 3 points
+- vrp_51_5_1 got 645.3806746081, passing small threshold and receiving 3 points
+- vrp_101_10_1 got 1208.6507757537, passing no threshold and receiving 0 points
+- vrp_200_16_1 got 2047.5322435216, passing small threshold and receiving 3 points
+- vrp_421_41_1 got 3107.8890886406, passing no threshold and receiving 0 points
+
+sum points: 12
