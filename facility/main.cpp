@@ -1,7 +1,7 @@
 #include <fstream>
 #include <iomanip>
 #include <iostream>
-#include <bnb_solver.h>
+#include <greedy_solver.h>
 
 int main(int argc, char** argv) {
     if (argc < 3) {
@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
         fin >> demands[i] >> consumers[i].x >> consumers[i].y;
     }
 
-    BnBFacilitySolver solver(facilities, costs, caps, consumers, demands);
+    GreedyFacilitySolver solver(facilities, costs, caps, consumers, demands);
 
     solver.solve();
     if (!solver.check()) {

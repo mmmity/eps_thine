@@ -1,6 +1,7 @@
 import os
 import sys
 import subprocess
+import time
 
 from typing import Tuple
 
@@ -89,8 +90,12 @@ for prefix in prefixes:
   for test, _, _ in tests:
     print(f'Running test {prefix}/{test}: ', end='')
     sys.stdout.flush()
+
+    start_time = time.perf_counter()
     res = subprocess.run([f'build/{prefix}', f'{prefix}/tests/{test}', f'{prefix}/results/{test}'], capture_output=True)
-    print('OK')
+    elapsed = time.perf_counter() - start_time
+
+    print(f'OK, {elapsed} seconds')
     out = res.stdout.decode('utf-8').strip()
     if '.' in out:
       res_int = float(out)

@@ -13,4 +13,10 @@ class GreedyFacilitySolver : public FacilitySolver {
     void solve() override;
 
     ~GreedyFacilitySolver() {}
+  private:
+    double penalty = 1e10;
+    void try_least_facilities();
+    void try_facilities_with_penalty();
+    void try_facilities_with_opening_penalty();
+    void try_nearest_facilities();
 };

@@ -18,7 +18,7 @@ class FacilitySolver {
   std::vector<int> assigned_facilities;
   double result{0};
 
-  const double EPS = 1e-6;
+  const double EPS = 1e-5;
 
  public:
 
