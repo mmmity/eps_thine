@@ -1,7 +1,7 @@
 tsp_51_1 got 428.871756392, passing BIG threshold and receiving 5 points
-tsp_100_3 got 21006.2822897934, passing small threshold and receiving 3 points
-tsp_200_2 got 30934.3342293071, passing small threshold and receiving 3 points
-tsp_574_1 got 39911.2239461338, passing small threshold and receiving 3 points
-tsp_1889_1 got 346951.0866803962, passing small threshold and receiving 3 points
-tsp_33810_1 got 77776861.78646962, passing small threshold and receiving 3 points
-sum points: 20
+tsp_100_3 got 20750.7625036869, passing BIG threshold and receiving 5 points
+tsp_200_2 got 29532.0122667202, passing BIG threshold and receiving 5 points
+tsp_574_1 got 38491.7565333641, passing small threshold and receiving 3 points
+tsp_1889_1 got 350244.4576641141, passing small threshold and receiving 3 points
+tsp_33810_1 got 77836076.04763284, passing small threshold and receiving 3 points
+sum points: 24
