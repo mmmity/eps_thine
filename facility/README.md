@@ -60,3 +60,19 @@ sum points: 5
 
 Внезапно это лучше чем branch and bound. Может быть это хороший бейзлайн
 
+# Решение 4
+
+Начинаем заниматься отжигом: я попробовал много разных констант, добавил мутации при каждом перезапуске. Единственное, что использую довольно простые шаги - переприсвоить покупателя другому магазину и поменять магазины у двух покупателей. Может быть нужно использовать более умные шаги, или уже начать переходить к генетике.
+
+Результат:
+
+- fl_25_2 got 3269821.3205296327, passing BIG threshold and receiving 5 points
+- fl_100_1 got 47302882.42382344, passing no threshold and receiving 0 points
+- fl_200_7 got 4938395.307083962, passing small threshold and receiving 3 points
+- fl_500_7 got 34345850.065323085, passing no threshold and receiving 0 points
+- fl_1000_2 got 9861631.513053415, passing small threshold and receiving 3 points
+- fl_2000_2 got 9139973.691660654, passing small threshold and receiving 3 points
+
+sum points: 14
+
+Уже неплохо, но конечно еще расти и расти. Пойду делать VRP.

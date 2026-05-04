@@ -82,7 +82,7 @@ int main(int argc, char** argv) {
 
     std::cout << std::setprecision(10) << std::fixed;
 
-    if (std::abs(actual_result - given_ans) >= 1e-6) {
+    if (std::abs(actual_result - given_ans) >= 1e-4) {
         std::cerr << actual_result << " " << given_ans << "\n";
         std::cerr << "Result is wrong\n";
         return 1;

@@ -57,6 +57,7 @@ target_include_directories(tsp_solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/tsp/sol
 target_link_libraries(tsp_solver PUBLIC util)
 
 add_library(facility_solver STATIC
+	facility/solver/anneal_solver.cpp
 	facility/solver/bnb_solver.cpp
 	facility/solver/greedy_solver.cpp
 	facility/solver/solver.cpp
