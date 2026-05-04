@@ -1,5 +1,7 @@
 #include "solver.h"
 
+#include <iostream>
+#include <iomanip>
 #include <set>
 
 bool FacilitySolver::check() {
@@ -20,6 +22,7 @@ bool FacilitySolver::check() {
     for (int i : open) {
         if (used[i] > caps[i]) return false;
     }
+    // std::cout << std::setprecision(10) << std::fixed << actual_result << " " << result << "\n";
 
     return std::abs(actual_result - result) < EPS;
 }

@@ -8,7 +8,7 @@
 
 class ProgressVisualizer {
   public:
-    ProgressVisualizer(int n, std::ostream& out = std::cout) : n(n), out(out) {}
+    ProgressVisualizer(int n = 0, std::ostream& out = std::cout) : n(n), out(out) {}
 
     void start_visualization(const std::string msg) {
 #ifndef NDEBUG
@@ -26,6 +26,10 @@ class ProgressVisualizer {
         visualize_progress();
         if (current >= n) end_visualization();
 #endif
+    }
+
+    void set_n(int n) {
+        this->n = n;
     }
  
   private:

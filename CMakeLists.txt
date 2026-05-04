@@ -57,11 +57,12 @@ target_include_directories(tsp_solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/tsp/sol
 target_link_libraries(tsp_solver PUBLIC util)
 
 add_library(facility_solver STATIC
+	facility/solver/bnb_solver.cpp
 	facility/solver/greedy_solver.cpp
 	facility/solver/solver.cpp
 )
-target_include_directories(facility_solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/facility/solver)
-target_link_libraries(facility_solver PUBLIC util)
+target_include_directories(facility_solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/facility/solver ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_libraries(facility_solver PUBLIC util knapsack_solver)
 
 add_library(vrp_solver STATIC
 	vrp/solver/greedy_solver.cpp
