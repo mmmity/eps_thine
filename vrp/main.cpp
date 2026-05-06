@@ -1,7 +1,7 @@
 #include <fstream>
 #include <iomanip>
 #include <iostream>
-#include <greedy_solver.h>
+#include <kmeans_solver.h>
 
 int main(int argc, char** argv) {
     if (argc < 3) {
@@ -20,7 +20,7 @@ int main(int argc, char** argv) {
         fin >> demands[i] >> clients[i].x >> clients[i].y;
     }
 
-    GreedyVRPSolver solver(clients, demands, cars, capacity);
+    KMeansVRPSolver solver(clients, demands, cars, capacity);
 
     solver.solve();
     if (!solver.check()) {

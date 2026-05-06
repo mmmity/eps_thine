@@ -5,6 +5,8 @@
 
 struct point {
     double x, y;
+    point() = default;
+    point(double x, double y) : x(x), y(y) {}
 };
 
 class TSPSolver {

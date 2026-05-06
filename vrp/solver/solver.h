@@ -5,6 +5,9 @@
 
 struct VRPPoint {
     double x, y;
+    VRPPoint() = default;
+    VRPPoint(double x, double y) : x(x), y(y) {}
+    VRPPoint(const VRPPoint& other) : x(other.x), y(other.y) {}
 };
 
 class VRPSolver {
