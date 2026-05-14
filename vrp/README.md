@@ -58,3 +58,18 @@ sum points: 12
 sum points: 20
 
 Я понятия не имею, почему оно так хорошо сработало. Неужели это кластеризация так сильно повлияла. Кажется, что можно еще немножко позаниматься локальным поиском и всё, пороги пробьются.
+
+# Решение 4
+До того как писать локальный поиск сделал более правильный KMeans - теперь я несколько итераций пересчитываю центроиды, потом присваиваю точки к ближайшему центроиду у которого есть место, и снова пересчитываю центроиды. Еще важно, что отсортировал точки по убыванию спроса. Плюс, стараюсь брать минимальное число машин. Находится в файле [better_kmeans_solver.cpp](better_kmeans_solver.cpp).
+
+Результат:
+- vrp_16_3_1 got 278.9853564363, passing BIG threshold and receiving 5 points
+- vrp_26_8_1 got 631.0208865452, passing small threshold and receiving 3 points
+- vrp_51_5_1 got 528.1299062418, passing BIG threshold and receiving 5 points
+- vrp_101_10_1 got 831.2948964242, passing small threshold and receiving 3 points
+- vrp_200_16_1 got 1544.1190021516, passing small threshold and receiving 3 points
+- vrp_421_41_1 got 1995.2841945022, passing BIG threshold and receiving 5 points
+
+sum points: 24
+
+Ну тут двум тестам не хватает меньше двух баллов для пробития высокого порога... Не знаю, мне кажется ненормально, что жадник так много берет.

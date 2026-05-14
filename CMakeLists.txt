@@ -66,12 +66,13 @@ target_include_directories(facility_solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/fa
 target_link_libraries(facility_solver PUBLIC util knapsack_solver)
 
 add_library(vrp_solver STATIC
+	vrp/solver/better_kmeans_solver.cpp
 	vrp/solver/kmeans_solver.cpp
 	vrp/solver/greedy_solver.cpp
 	vrp/solver/solver.cpp
 )
 target_include_directories(vrp_solver PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/vrp/solver ${CMAKE_CURRENT_SOURCE_DIR})
-target_link_libraries(vrp_solver PUBLIC util tsp_solver)
+target_link_libraries(vrp_solver PUBLIC util tsp_solver knapsack_solver)
 
 add_executable(coloring coloring/main.cpp)
 add_executable(coloring_checker coloring/checker.cpp)
