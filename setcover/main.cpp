@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
-#include <greedy_solver.h>
 #include <randomized_element_solver.h>
+#include <ls_solver.h>
 
 int main(int argc, char** argv) {
   if (argc < 3) {
@@ -34,21 +34,29 @@ int main(int argc, char** argv) {
   }
 #endif
 
-  RandomizedElementSSCSolver solver(n, std::move(sets), std::move(costs), 1000-7);
+  SSCSolver* solver{nullptr};
 
-  solver.solve();
+  if (n < 50) {
+    solver = new RandomizedElementSSCSolver(n, std::move(sets), std::move(costs), 1000-7);
+  } else {
+    solver = new LSSSCSolver(n, std::move(sets), std::move(costs));
+  }
+  
+  solver->solve();
 
-  if (!solver.check()) {
+  if (!solver->check()) {
     std::cout << "SOLVER DOES NOT WORK AS INTENDED\n";
     return 1;
   }
 
   std::ofstream fout(argv[2]);
-  fout << solver.get_result_set().size() << " " << solver.get_result() << "\n";
-  for (int i : solver.get_result_set()) {
+  fout << solver->get_result_set().size() << " " << solver->get_result() << "\n";
+  for (int i : solver->get_result_set()) {
     fout << i << " ";
   }
   fout << "\n";
 
-  std::cout << solver.get_result() << "\n";
+  std::cout << solver->get_result() << "\n";
+
+  delete solver;
 }

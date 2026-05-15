@@ -14,6 +14,7 @@ add_subdirectory(util)
 
 
 add_library(setcover_solver STATIC
+	setcover/solver/ls_solver.cpp
 	setcover/solver/greedy_solver.cpp
 	setcover/solver/bnb_solver.cpp
 	setcover/solver/randomized_solver.cpp
