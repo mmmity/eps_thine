@@ -76,3 +76,16 @@ sum points: 5
 sum points: 14
 
 Уже неплохо, но конечно еще расти и расти. Пойду делать VRP.
+
+# Решение 5
+
+Добавил еще два действия для отжига - открыть магазин и жадно перекинуть в него покупателей, и закрыть магазин, и распихать покупателей из него по другим. Также добавил после каждого отжига обычный локальный поиск, который просто ищет локальный оптимум, и в конце локальный поиск чуть подольше. Поподбирал константы. Результат:
+
+- fl_25_2 got 3269821.320530847, passing BIG threshold and receiving 5 points
+- fl_100_1 got 22852222.032734297, passing small threshold and receiving 3 points
+- fl_200_7 got 4746923.336915912, passing small threshold and receiving 3 points
+- fl_500_7 got 27854848.822792746, passing small threshold and receiving 3 points
+- fl_1000_2 got 9093365.596066186, passing small threshold and receiving 3 points
+- fl_2000_2 got 7914010.658810175, passing small threshold and receiving 3 points
+
+sum points: 20

@@ -22,11 +22,21 @@ class AnnealFacilitySolver : public GreedyFacilitySolver {
     void reassign(int i, int j);
     double mock_swap_consumers(int i, int j);
     void swap_consumers(int i, int j);
+    double mock_close_facility(int i, std::vector<std::pair<int, int>>& moves);
+    void close_facility(int i, const std::vector<std::pair<int, int>>& moves);
+    double mock_open_facility(int i, std::vector<int>& lures);
+    void open_facility(int i, const std::vector<int>& lures);
+
+    bool apply_closes();
+    bool apply_opens();
+    bool apply_reassigns();
+    void apply_all();
+
     void solve_once(std::mt19937& rnd);
     void calc_dist_matrix();
 
-    int restart_count = 50;
-    int opt_count = 15000000;
+    int restart_count = 25;
+    int opt_count = 10000000;
     double start_temp = 50000;
     double end_temp = 1e-4;
     double temp, mul;
