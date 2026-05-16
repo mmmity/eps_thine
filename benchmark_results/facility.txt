@@ -1,7 +1,7 @@
-fl_25_2 got 3269821.3205296327, passing BIG threshold and receiving 5 points
-fl_100_1 got 47302882.42382344, passing no threshold and receiving 0 points
-fl_200_7 got 4938395.307083962, passing small threshold and receiving 3 points
-fl_500_7 got 34345850.065323085, passing no threshold and receiving 0 points
-fl_1000_2 got 9861631.513053415, passing small threshold and receiving 3 points
-fl_2000_2 got 9139973.691660654, passing small threshold and receiving 3 points
-sum points: 14
+fl_25_2 got 3269821.3205303075, passing BIG threshold and receiving 5 points
+fl_100_1 got 22852222.032734297, passing small threshold and receiving 3 points
+fl_200_7 got 4740871.242304476, passing small threshold and receiving 3 points
+fl_500_7 got 27854848.822792746, passing small threshold and receiving 3 points
+fl_1000_2 got 9109692.056902073, passing small threshold and receiving 3 points
+fl_2000_2 got 7899198.709614469, passing small threshold and receiving 3 points
+sum points: 20
